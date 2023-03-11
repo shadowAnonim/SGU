@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using SGU;
 
-namespace SGU;
+namespace SGU.Data;
 
 public partial class UsersContext : DbContext
 {
@@ -34,11 +35,8 @@ public partial class UsersContext : DbContext
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        string baseDir = AppDomain.CurrentDomain.BaseDirectory; 
-        optionsBuilder.UseSqlite($"Data Source={baseDir}Users.db");
-    }
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlite("Data Source=C:\\Users\\Evgeny\\source\\repos\\SGU\\SGU\\Users.db");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -198,26 +196,19 @@ public partial class UsersContext : DbContext
             entity.Property(e => e.PassportNumber).HasColumnName("Passport_number");
             entity.Property(e => e.PassportScan).HasColumnName("Passport_scan");
             entity.Property(e => e.PassportSeries).HasColumnName("Passport_series");
+            entity.Property(e => e.Password).HasColumnType("VARCHAR(50)");
             entity.Property(e => e.PhoneNumber)
                 .HasColumnType("VARCHAR (11, 15)")
                 .HasColumnName("Phone_number");
             entity.Property(e => e.Street).HasColumnType("VARCHAR (3, 30)");
 
-            entity.HasOne(d => d.CerificateOriginality).WithMany(p => p.Users)
-                .HasForeignKey(d => d.CerificateOriginalityId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.CerificateOriginality).WithMany(p => p.Users).HasForeignKey(d => d.CerificateOriginalityId);
 
-            entity.HasOne(d => d.City).WithMany(p => p.Users)
-                .HasForeignKey(d => d.CityId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.City).WithMany(p => p.Users).HasForeignKey(d => d.CityId);
 
-            entity.HasOne(d => d.Direction).WithMany(p => p.Users)
-                .HasForeignKey(d => d.DirectionId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.Direction).WithMany(p => p.Users).HasForeignKey(d => d.DirectionId);
 
-            entity.HasOne(d => d.FormOfStudy).WithMany(p => p.Users)
-                .HasForeignKey(d => d.FormOfStudyId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+            entity.HasOne(d => d.FormOfStudy).WithMany(p => p.Users).HasForeignKey(d => d.FormOfStudyId);
 
             entity.HasOne(d => d.Gender).WithMany(p => p.Users)
                 .HasForeignKey(d => d.GenderId)

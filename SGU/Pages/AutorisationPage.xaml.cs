@@ -27,7 +27,12 @@ namespace SGU.Pages
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            User user = Utils.db.Users.FirstOrDefault(u => u.EMail == loginTb.Text.Trim());
+            if (user == null)
+            {
+                Utils.Error("Такой пользователь не существует");
+                return;
+            }
         }
     }
 }
