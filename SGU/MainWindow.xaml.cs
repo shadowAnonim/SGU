@@ -38,7 +38,8 @@ namespace SGU
 
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.GoBack();
+            UsersContext ogo = new UsersContext();
+            MessageBox.Show(ogo.Cities.First().Name);
         }
     }
 }
