@@ -9,6 +9,19 @@
       Title="AutorisationPage">
 
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Логин:" Width="60"/>
+                <TextBox x:Name="loginTb"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Пароль:" Width="60"/>
+                <PasswordBox x:Name="passwordTb"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="registrationBtn" Content="Регистрация"/>
+                <Button x:Name="loginBtn" Content="Вход"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
