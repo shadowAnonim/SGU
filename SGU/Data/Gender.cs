@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SGU;
+namespace SGU.Data;
 
 public partial class Gender
 {
