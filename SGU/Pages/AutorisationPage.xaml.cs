@@ -24,5 +24,10 @@ namespace SGU.Pages
         {
             InitializeComponent();
         }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

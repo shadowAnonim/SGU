@@ -20,7 +20,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="registrationBtn" Content="Регистрация"/>
-                <Button x:Name="loginBtn" Content="Вход"/>
+                <Button x:Name="loginBtn" Content="Вход" Click="loginBtn_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>
