@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGU.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace SGU.Pages
     /// </summary>
     public partial class MenuPage : Page
     {
-        public MenuPage()
+        public MenuPage(User user)
         {
             InitializeComponent();
+            MessageBox.Show(user.LastName);
         }
     }
 }

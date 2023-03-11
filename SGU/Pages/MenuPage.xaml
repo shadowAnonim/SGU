@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SGU.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MenuPage">
+      Title="Главное меню">
 
     <Grid>
         <Button x:Name="formBtn" Content="Анкета"/>

@@ -29,12 +29,18 @@ namespace SGU.Pages
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            User user = Utils.db.Users.FirstOrDefault(u => u.EMail == loginTb.Text.Trim());
+            User user = Utils.db.Users.FirstOrDefault(u => u.EMail.ToLower() == loginTb.Text.ToLower().Trim());
             if (user == null)
             {
                 Utils.Error("Такой пользователь не существует");
                 return;
             }
+            if (user.Password != passwordTb.Password.Trim())
+            {
+                Utils.Error("Неверный пароль");
+                return;
+            }
+            NavigationService.Navigate(new MenuPage(user));
         }
     }
 }
