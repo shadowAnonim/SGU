@@ -9,6 +9,14 @@
       Title="Регистрация">
 
     <Grid>
+        <StackPanel>
+            <TextBox x:Name="Middle_name"></TextBox>
+            <TextBox x:Name="First_name"></TextBox>
+            <TextBox x:Name="Last_name"></TextBox>
+            <ComboBox x:Name="Gender_box" SelectedIndex="0"></ComboBox>
+            <TextBox x:Name="Email"></TextBox>
+            <Button x:Name="Save" Click="saveBtn_Click"></Button>
+    </StackPanel>
         
-    </Grid>
+        </Grid>
 </Page>

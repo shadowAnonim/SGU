@@ -43,5 +43,10 @@ namespace SGU.Pages
             }
             NavigationService.Navigate(new MenuPage(user));
         }
+
+        private void RegistrationBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistrationPage());
+        }
     }
 }
