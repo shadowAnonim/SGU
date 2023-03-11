@@ -23,8 +23,6 @@ namespace SGU.Pages
     {
         public MenuPage(User user)
         {
-            InitializeComponent();
-            MessageBox.Show(user.LastName);
-        }
+            InitializeComponent();        }
     }
 }

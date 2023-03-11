@@ -29,6 +29,7 @@ namespace SGU.Pages
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(Utils.checkEmail(loginTb.Text).ToString());
             User user = Utils.db.Users.FirstOrDefault(u => u.EMail.ToLower() == loginTb.Text.ToLower().Trim());
             if (user == null)
             {
